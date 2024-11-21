@@ -177,3 +177,29 @@
     75% {margin-left:-300%;}
     100% {margin-left:-300%;}
   }
+
+  .logo-img {
+    max-width: 100%; /* Hace que el logo no exceda su contenedor */
+    height: auto; /* Mantiene la proporción del logo */
+    width: 30px; /* Tamaño base del logo, ajusta según lo necesario */
+}
+
+/* Tamaño más grande en pantallas medianas */
+@media (min-width: 768px) {
+    .logo-img {
+        width: 20px; /* Aumenta el tamaño del logo para pantallas medianas */
+    }
+}
+
+/* Tamaño aún más grande en pantallas grandes */
+@media (min-width: 1200px) {
+    .logo-img {
+        width: 30px; /* Tamaño más grande para pantallas grandes */
+    }
+}
+
+.imgpagina {
+  width: 100%;  /* Asegura que la imagen ocupe todo el ancho disponible */
+  height: auto; /* Mantiene la proporción de la imagen */
+  margin-bottom: 20px; /* Espacio inferior entre la imagen y el siguiente texto */
+}

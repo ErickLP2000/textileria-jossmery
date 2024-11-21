@@ -1,5 +1,5 @@
 body{
-	background-color: #79ebacf3;
+	background-color: #fdfdfdf3;
 }
 
 .cuadro{
@@ -20,7 +20,7 @@ h3{
 }
 
 .linea{
-	border-bottom: 3px solid #79ebacf3;
+	border-bottom: 3px solid #14b2bdf3;
 	padding-bottom: 5px;
 }
 
@@ -37,4 +37,12 @@ h3{
 .colorBoton:hover{
 	background-color: #D5053B;
 	border-color: #D5053B;
+}
+
+.responsive-img {
+    max-width: 100%; /* Asegura que no exceda el contenedor */
+    height: auto;    /* Mantiene la proporción */
+    width: 250px;    /* Tamaño base; ajusta según lo necesario */
+    display: block;  /* Evita problemas con el espacio en línea */
+    margin: 0 auto;  /* Centra la imagen si es necesario */
 }
