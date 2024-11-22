@@ -23,34 +23,71 @@
         <a class="navbar-brand brand-logo" th:href="@{/pagina}"><img th:src="@{/images/imgindex/pagina/icono.PNG}" alt="logo"/> Quinta Farma</a>
     </div>
      <div class="sidebar-menu"  th:fragment="opciones">
-        <ul class="menu">
+        <ul class="menu ">
                 <li class='sidebar-title'>Menu </li>
-                <li class="sidebar-item  ">
-                    <a th:href="@{/categoria/}" class='sidebar-link'>
-                        <i data-feather="layout" width="20"></i> 
-                        <span>Categorias</span>
-                    </a>
-                </li>
-                <li class="sidebar-item  ">
-
-                    <a th:href="@{/producto/}" class='sidebar-link'>
-                        <i data-feather="layers" width="20"></i> 
-                        <span>Productos</span>
-                    </a>
-                </li>
-                
-                <li class="sidebar-item  ">
+                <li class="sidebar-item">
 
                     <a th:href="@{/listacliente/}" class='sidebar-link'>
-                        <i data-feather="grid" width="20"></i> 
-                        <span>Clientes</span>
+                        <i data-feather="smile" width="20"></i> 
+                        <span class="">Clientes</span>
                     </a>
                 </li>
-
                 <li class="sidebar-item  ">
                     <a th:href="@{/proveedor/}" class='sidebar-link'>
-                        <i data-feather="grid" width="20"></i> 
+                        <i data-feather="truck" width="20"></i> 
                         <span>Proveedor</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" data-bs-toggle="collapse" href="#submenuInsumos" role="button" aria-expanded="false" aria-controls="submenuInsumos">
+                        <i data-feather="archive" width="20"></i>
+                        <span>Insumos</span>
+                    </a>
+                    <!-- Submenú -->
+                    <div class="collapse" id="submenuInsumos">
+                        <ul class="list-unstyled ps-3">
+                            <li><a href="/categoria/opcion1" class="sidebar-link">Ver Insumos (Principal)</a></li>
+                            <li><a href="/categoria/opcion2" class="sidebar-link">Ver Insumos (Ingresos)</a></li>
+                            <li><a href="/categoria/opcion2" class="sidebar-link">Ver Insumos (Salida)</a></li>
+                            <li><a th:href="@{/categoria/}" class="sidebar-link">Ver Categorias (Insumos)</a></li>
+                            <li><a href="/categoria/opcion2" class="sidebar-link">Ver Marcas (Insumos)</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" data-bs-toggle="collapse" href="#submenuProductos" role="button" aria-expanded="false" aria-controls="submenuProductos">
+                        <i data-feather="layout" width="20"></i>
+                        <span>Productos</span>
+                    </a>
+                    <!-- Submenú -->
+                    <div class="collapse" id="submenuProductos">
+                        <ul class="list-unstyled ps-3">
+                            <li><a th:href="@{/producto/}" class="sidebar-link">Ver Productos (Principal)</a></li>
+                            <li><a href="/categoria/opcion2" class="sidebar-link">Ver Productos (Ingresos)</a></li>
+                            <li><a href="/categoria/opcion2" class="sidebar-link">Ver Productos (Salida)</a></li>
+                            <li><a th:href="@{/categoria/}" class="sidebar-link">Ver Categorias (Producto)</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" data-bs-toggle="collapse" href="#submenuServicios" role="button" aria-expanded="false" aria-controls="submenuServicios">
+                        <i data-feather="briefcase" width="20"></i>
+                        <span>Servicios</span>
+                    </a>
+                    <!-- Submenú -->
+                    <div class="collapse" id="submenuServicios">
+                        <ul class="list-unstyled ps-3">
+                            <li><a th:href="@{/producto/}" class="sidebar-link">Ver Servicios (Principal)</a></li>
+                            <li><a href="/categoria/opcion2" class="sidebar-link">Ver Servicios (Ingresos)</a></li>
+                            <li><a href="/categoria/opcion2" class="sidebar-link">Ver Servicios (Salida)</a></li>
+                            <li><a th:href="@{/categoria/}" class="sidebar-link">Ver Categorias (Servicios)</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="sidebar-item  ">
+                    <a th:href="@{/inventario/}" class='sidebar-link'>
+                        <i data-feather="users" width="20"></i> 
+                        <span>Usuarios</span>
                     </a>
                 </li>
                 
