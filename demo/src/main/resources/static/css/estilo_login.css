@@ -1,5 +1,5 @@
 body{
-	background-color: #79ebacf3;
+	background-color: #fdfdfdf3;
 }
 
 .cuadro{
@@ -20,7 +20,7 @@ h3{
 }
 
 .linea{
-	border-bottom: 3px solid #79ebacf3;
+	border-bottom: 3px solid #53faaff3;
 	padding-bottom: 5px;
 }
 
@@ -37,4 +37,32 @@ h3{
 .colorBoton:hover{
 	background-color: #D5053B;
 	border-color: #D5053B;
+}
+
+.responsive-img {
+    max-width: 100%; /* Asegura que no exceda el contenedor */
+    height: auto;    /* Mantiene la proporción */
+    width: 250px;    /* Tamaño base; ajusta según lo necesario */
+    display: block;  /* Evita problemas con el espacio en línea */
+    margin: 0 auto;  /* Centra la imagen si es necesario */
+}
+
+.logo-img {
+    max-width: 100%; /* Hace que el logo no exceda su contenedor */
+    height: auto; /* Mantiene la proporción del logo */
+    width: 30px; /* Tamaño base del logo, ajusta según lo necesario */
+}
+
+/* Tamaño más grande en pantallas medianas */
+@media (min-width: 768px) {
+    .logo-img {
+        width: 20px; /* Aumenta el tamaño del logo para pantallas medianas */
+    }
+}
+
+/* Tamaño aún más grande en pantallas grandes */
+@media (min-width: 1200px) {
+    .logo-img {
+        width: 30px; /* Tamaño más grande para pantallas grandes */
+    }
 }
