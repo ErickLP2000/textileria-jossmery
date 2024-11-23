@@ -46,8 +46,16 @@ public class Insumo implements Serializable{
 
     @ManyToOne
     @JoinColumn(name = "proveedor_id")
-    Proveedor proveedor;
+    Proveedores proveedores;
     
+    public Proveedores getProveedores() {
+        return proveedores;
+    }
+
+    public void setProveedores(Proveedores proveedores) {
+        this.proveedores = proveedores;
+    }
+
     @ManyToOne
     @JoinColumn(name = "marca_insumo_id")
     Marcainsu marcainsu;
@@ -84,13 +92,6 @@ public class Insumo implements Serializable{
         this.categoriainsu = categoriainsu;
     }
 
-    public Proveedor getProveedor() {
-        return proveedor;
-    }
-
-    public void setProveedor(Proveedor proveedor) {
-        this.proveedor = proveedor;
-    }
 
     public Marcainsu getMarcainsu() {
         return marcainsu;

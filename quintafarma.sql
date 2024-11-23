@@ -72,6 +72,54 @@ INSERT INTO `categoria` VALUES (4,'Andres','asdasd');
 UNLOCK TABLES;
 
 --
+-- Table structure for table `categorias_insumos`
+--
+
+DROP TABLE IF EXISTS `categorias_insumos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `categorias_insumos` (
+  `id_catinsumos` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `nombre_categoria_insumo` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_catinsumos`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `categorias_insumos`
+--
+
+LOCK TABLES `categorias_insumos` WRITE;
+/*!40000 ALTER TABLE `categorias_insumos` DISABLE KEYS */;
+INSERT INTO `categorias_insumos` VALUES (1,'Moresa');
+/*!40000 ALTER TABLE `categorias_insumos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `categorias_productos`
+--
+
+DROP TABLE IF EXISTS `categorias_productos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `categorias_productos` (
+  `id_catproducto` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `nombre_categoria_producto` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_catproducto`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `categorias_productos`
+--
+
+LOCK TABLES `categorias_productos` WRITE;
+/*!40000 ALTER TABLE `categorias_productos` DISABLE KEYS */;
+INSERT INTO `categorias_productos` VALUES (1,'Mores');
+/*!40000 ALTER TABLE `categorias_productos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `cliente`
 --
 
@@ -125,7 +173,7 @@ CREATE TABLE `clientes` (
   CONSTRAINT `fk_distrito_cliente` FOREIGN KEY (`distrito_id`) REFERENCES `distritos` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `fk_tipclo_cliente` FOREIGN KEY (`tipo_cliente_id`) REFERENCES `tipo_cliente` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `fk_tipdoc_cliente` FOREIGN KEY (`tipo_documento_id`) REFERENCES `tipo_documento` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -134,7 +182,7 @@ CREATE TABLE `clientes` (
 
 LOCK TABLES `clientes` WRITE;
 /*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
-INSERT INTO `clientes` VALUES (2,1,2,8,'More','Marti','MORE','169681516','Lima','919746551','2024-11-22 00:00:00',NULL);
+INSERT INTO `clientes` VALUES (2,1,2,8,'More','Martissss','MORE','169681516','Lima','919746551','2024-11-22 00:00:00','2024-11-22 11:00:08'),(3,1,1,5,'Admin','Martinez','NOMEs','69651','Lima','919746551',NULL,'2024-11-22 10:53:02'),(4,1,1,18,'Admin','Martinez','sdasdasdaaaaa','6965134','Caracas','9497416','2024-11-22 11:00:32','2024-11-22 11:00:40'),(5,1,1,3,'Admin','Marti','Martinez','69651','Callao','949151151','2024-11-22 18:21:44',NULL);
 /*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -194,6 +242,41 @@ INSERT INTO `distritos` VALUES (1,'Ancón'),(2,'Ate'),(3,'Barranco'),(4,'Breña'
 UNLOCK TABLES;
 
 --
+-- Table structure for table `insumos`
+--
+
+DROP TABLE IF EXISTS `insumos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `insumos` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `categoria_insumo_id` bigint unsigned DEFAULT NULL,
+  `proveedor_id` bigint unsigned DEFAULT NULL,
+  `marca_insumo_id` bigint unsigned DEFAULT NULL,
+  `nombre` varchar(100) DEFAULT NULL,
+  `descripcion` varchar(255) DEFAULT NULL,
+  `color` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_cat_insumos_idx` (`categoria_insumo_id`),
+  KEY `fk_prov_insumo_idx` (`proveedor_id`),
+  KEY `fk_marca_insumo_idx` (`marca_insumo_id`),
+  CONSTRAINT `fk_cat_insumo` FOREIGN KEY (`categoria_insumo_id`) REFERENCES `categorias_insumos` (`id_catinsumos`),
+  CONSTRAINT `fk_marca_insumo` FOREIGN KEY (`marca_insumo_id`) REFERENCES `marcas_insumos` (`id_marcainsumo`),
+  CONSTRAINT `fk_prov_insumo` FOREIGN KEY (`proveedor_id`) REFERENCES `proveedores` (`id_proveedor`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `insumos`
+--
+
+LOCK TABLES `insumos` WRITE;
+/*!40000 ALTER TABLE `insumos` DISABLE KEYS */;
+INSERT INTO `insumos` VALUES (1,1,2,1,'More','gwjgniairgiaergnbeibnjergokermfokwefwgwef','Azulino');
+/*!40000 ALTER TABLE `insumos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `inventario`
 --
 
@@ -216,6 +299,30 @@ LOCK TABLES `inventario` WRITE;
 /*!40000 ALTER TABLE `inventario` DISABLE KEYS */;
 INSERT INTO `inventario` VALUES (1,'sdasd',26),(2,'asdasdas',15);
 /*!40000 ALTER TABLE `inventario` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `marcas_insumos`
+--
+
+DROP TABLE IF EXISTS `marcas_insumos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `marcas_insumos` (
+  `id_marcainsumo` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `nombre_marca_insumo` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_marcainsumo`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `marcas_insumos`
+--
+
+LOCK TABLES `marcas_insumos` WRITE;
+/*!40000 ALTER TABLE `marcas_insumos` DISABLE KEYS */;
+INSERT INTO `marcas_insumos` VALUES (1,'Moree');
+/*!40000 ALTER TABLE `marcas_insumos` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -290,7 +397,7 @@ CREATE TABLE `proveedor` (
   `prov_direc` varchar(45) NOT NULL,
   `prov_telefono` int NOT NULL,
   PRIMARY KEY (`prov_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -299,8 +406,38 @@ CREATE TABLE `proveedor` (
 
 LOCK TABLES `proveedor` WRITE;
 /*!40000 ALTER TABLE `proveedor` DISABLE KEYS */;
-INSERT INTO `proveedor` VALUES (1,'INsda','asdasd',9491874);
+INSERT INTO `proveedor` VALUES (1,'INsda','asdasd',9491874),(2,'dasda','asdasd',65161651);
 /*!40000 ALTER TABLE `proveedor` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `proveedores`
+--
+
+DROP TABLE IF EXISTS `proveedores`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `proveedores` (
+  `id_proveedor` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `nombre_proveedor` varchar(255) DEFAULT NULL,
+  `ruc` varchar(11) DEFAULT NULL,
+  `direccion` varchar(255) DEFAULT NULL,
+  `celular` varchar(9) DEFAULT NULL,
+  `estado_proveedor` int DEFAULT NULL,
+  `fecha_registro` datetime DEFAULT NULL,
+  `fecha_editado` datetime DEFAULT NULL,
+  PRIMARY KEY (`id_proveedor`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `proveedores`
+--
+
+LOCK TABLES `proveedores` WRITE;
+/*!40000 ALTER TABLE `proveedores` DISABLE KEYS */;
+INSERT INTO `proveedores` VALUES (1,'Luis Nogueraa','21323124','Comas','919746551',1,'2024-11-22 18:29:40','2024-11-22 19:07:42'),(2,'More','21323124','Lima','919746551',1,'2024-11-22 18:53:31','2024-11-22 19:07:47'),(3,'More','6516516','Comas','919746551',0,'2024-11-22 19:00:27',NULL),(4,'Luis Nogueraa','16516915','Caracas','919746551',1,'2024-11-22 19:00:45',NULL);
+/*!40000 ALTER TABLE `proveedores` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -328,6 +465,30 @@ LOCK TABLES `roles` WRITE;
 /*!40000 ALTER TABLE `roles` DISABLE KEYS */;
 INSERT INTO `roles` VALUES (1,'ROL_ADMIN',1);
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `servicios_especificos`
+--
+
+DROP TABLE IF EXISTS `servicios_especificos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `servicios_especificos` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `nombre_servicio` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `servicios_especificos`
+--
+
+LOCK TABLES `servicios_especificos` WRITE;
+/*!40000 ALTER TABLE `servicios_especificos` DISABLE KEYS */;
+INSERT INTO `servicios_especificos` VALUES (1,'Mores');
+/*!40000 ALTER TABLE `servicios_especificos` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -413,4 +574,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-22 10:18:16
+-- Dump completed on 2024-11-22 23:31:38

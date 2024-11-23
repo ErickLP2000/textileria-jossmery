@@ -48,7 +48,7 @@
                                     
                                     <div class="col-md-6 mb-3">
                                         <label>Proveedor:</label>
-                                        <select th:field="*{proveedor.id}" class="form-select" required>
+                                        <select th:field="*{proveedores.id}" class="form-select" required>
                                             <option value="">Seleccione una opción</option>
                                             <option th:each="item : ${listaProveedores}" th:value="${item.id}" th:text="${item.nombre}"></option>
                                         </select>
@@ -124,7 +124,7 @@
                                 <tbody>
                                     <tr th:each="item: ${listaInsumo}">
                                         <td th:text="${item.categoriainsu.nombre}"></td>
-                                        <td th:text="${item.proveedor.nombre}"></td>
+                                        <td th:text="${item.proveedores.nombre}"></td>
                                         <td th:text="${item.nombre}"></td>
                                         <td th:text="${item.marcainsu.nombre}"></td>
                                         <td th:text="${item.descripcion}"></td>

@@ -9,6 +9,7 @@
             document.getElementById('cboMarca').value = item.dataset.marca;
             document.getElementById('txtNombre').value = item.dataset.nombre;
             document.getElementById('txtColor').value = item.dataset.color;
+            document.getElementById('txtDescripcion').value = item.dataset.descripcion;
             new bootstrap.Modal(document.getElementById('modalEditar')).show();
         })
     })
