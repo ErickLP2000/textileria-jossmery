@@ -8,49 +8,45 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+
 
 
 @Entity
-@Table(name="clientes")
-public class Cliente implements Serializable{
+@Table(name = "proveedores")
+public class Proveedores implements Serializable{
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id_proveedor")
     private Long id;
 
-    @Column(name = "nombres")
-    @NotEmpty
+    @Column(name = "nombre_proveedor")
     private String nombre;
 
-    @Column(name = "apellido_paterno")
-    @NotEmpty
-    private String paterno;
-
-    @Column(name = "apellido_materno")
-    @NotEmpty
-    private String materno;
-
-    @Column(name = "nro_documento")
-    @NotNull
-    private String numdoc;
-
+    @Column(name = "ruc")
+    private String ruc;
 
     @Column(name = "direccion")
-    @NotEmpty
     private String direccion;
-
+    
     @Column(name = "celular")
-    @NotNull
     private String celular;
+
+    @Column(name = "estado_proveedor")
+    private Long estado;
+
+    public Long getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Long estado) {
+        this.estado = estado;
+    }
 
     @Column(name = "fecha_registro", updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
@@ -59,18 +55,6 @@ public class Cliente implements Serializable{
     @Column(name = "fecha_editado")
     @Temporal(TemporalType.TIMESTAMP)
     private Date editado;
-    
-    @ManyToOne
-    @JoinColumn(name = "tipo_cliente_id")
-    Tipocliente tipocliente;
-
-    @ManyToOne
-    @JoinColumn(name = "tipo_documento_id")
-    Documento documento;
-    
-    @ManyToOne
-    @JoinColumn(name = "distrito_id")
-    Distrito distrito;
 
     @PrePersist
     private void registrarFecha(){
@@ -98,23 +82,13 @@ public class Cliente implements Serializable{
         this.nombre = nombre;
     }
 
-    public String getPaterno() {
-        return paterno;
+    public String getRuc() {
+        return ruc;
     }
 
-    public void setPaterno(String paterno) {
-        this.paterno = paterno;
+    public void setRuc(String ruc) {
+        this.ruc = ruc;
     }
-
-    public String getMaterno() {
-        return materno;
-    }
-
-    public void setMaterno(String materno) {
-        this.materno = materno;
-    }
-
-    
 
     public String getDireccion() {
         return direccion;
@@ -146,38 +120,6 @@ public class Cliente implements Serializable{
 
     public void setEditado(Date editado) {
         this.editado = editado;
-    }
-
-    public Tipocliente getTipocliente() {
-        return tipocliente;
-    }
-
-    public void setTipocliente(Tipocliente tipocliente) {
-        this.tipocliente = tipocliente;
-    }
-
-    public String getNumdoc() {
-        return numdoc;
-    }
-
-    public void setNumdoc(String numdoc) {
-        this.numdoc = numdoc;
-    }
-
-    public Documento getDocumento() {
-        return documento;
-    }
-
-    public void setDocumento(Documento documento) {
-        this.documento = documento;
-    }
-
-    public Distrito getDistrito() {
-        return distrito;
-    }
-
-    public void setDistrito(Distrito distrito) {
-        this.distrito = distrito;
     }
     
 }

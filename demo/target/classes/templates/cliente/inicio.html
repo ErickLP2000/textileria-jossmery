@@ -192,10 +192,10 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <form th:action="@{/cliente/form}" th:object="${cliente}" method="post">
-              <div class="modal-body">
+              <div class="modal-body p-4">
                   <input type="hidden" th:field="*{id}">
 
-                  <div class="row">
+                  <div class="row mb-3">
                       <div class="col-12 mn-3">
                           <label>Tipo de Documento:</label>
                           <select name="documento.id" id="cboDocumento" class="form-select" required>
@@ -205,35 +205,35 @@
                       </div>
                   </div>
 
-                  <div class="row">
+                  <div class="row mb-3">
                     <div class="col-12 mn-3">
                         <label>N° de documento:</label>
                         <input type="text" name="numdoc" id="txtNumdoc" class="form-control" placeholder="Ingrese el numero de documento" required/>
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row mb-3">
                     <div class="col-12 mn-3">
                         <label>Nombres:</label>
                         <input type="text" name="nombre" id="txtNombre" class="form-control" placeholder="Ingrese el nombre" required/>
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row mb-3">
                     <div class="col-12 mn-3">
                         <label>Apellido Paterno:</label>
                         <input type="text" name="paterno" id="txtPaterno" class="form-control" placeholder="Ingrese el apellido paterno" required/>
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row mb-3">
                     <div class="col-12 mn-3">
                         <label>Apellido Materno:</label>
                         <input type="text" name="materno" id="txtMaterno" class="form-control" placeholder="Ingrese el apellido materno" required/>
                     </div>
                 </div>
 
-                  <div class="row">
+                  <div class="row mb-3">
                     <div class="col-12 mn-3">
                         <label>Distrito:</label>
                         <select name="distrito.id" id="cboDistrito" class="form-select" required>
@@ -243,7 +243,7 @@
                     </div>
                   </div>
 
-                  <div class="row">
+                  <div class="row mb-3">
                     <div class="col-12 mn-3">
                         <label>Dirección:</label>
                         <input type="text" name="direccion" id="txtDireccion" class="form-control" placeholder="Ingrese la dirección" required/>
@@ -251,7 +251,7 @@
                 </div>
 
 
-                  <div class="row">
+                  <div class="row mb-3">
                     <div class="col-12 mn-3">
                         <label>Tip. de Cliente:</label>
                         <select name="tipocliente.id" id="cboTipocliente" class="form-select" required>
@@ -260,7 +260,7 @@
                         </select>
                     </div>
                   </div>
-                  <div class="row">
+                  <div class="row mb-3">
                     <div class="col-12 mn-3">
                         <label>Celular:</label>
                         <input type="text" name="celular" id="txtCelular" class="form-control" placeholder="Ingrese numero de celular" required/>

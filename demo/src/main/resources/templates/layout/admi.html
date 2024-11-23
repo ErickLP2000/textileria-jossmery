@@ -25,17 +25,17 @@
      <div class="sidebar-menu"  th:fragment="opciones">
         <ul class="menu ">
                 <li class='sidebar-title'>Menu </li>
-                <li class="sidebar-item">
-
-                    <a th:href="@{/listacliente/}" class='sidebar-link'>
+                
+                <li class="sidebar-item  ">
+                    <a th:href="@{/cliente/}" class='sidebar-link'>
                         <i data-feather="smile" width="20"></i> 
-                        <span class="">Clientes</span>
+                        <span>Clientes</span>
                     </a>
                 </li>
                 <li class="sidebar-item  ">
-                    <a th:href="@{/proveedor/}" class='sidebar-link'>
+                    <a th:href="@{/proveedores/}" class='sidebar-link'>
                         <i data-feather="truck" width="20"></i> 
-                        <span>Proveedor</span>
+                        <span>Proveedores</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
@@ -46,11 +46,11 @@
                     <!-- Submenú -->
                     <div class="collapse" id="submenuInsumos">
                         <ul class="list-unstyled ps-3">
-                            <li><a href="/categoria/opcion1" class="sidebar-link">Ver Insumos (Principal)</a></li>
-                            <li><a href="/categoria/opcion2" class="sidebar-link">Ver Insumos (Ingresos)</a></li>
-                            <li><a href="/categoria/opcion2" class="sidebar-link">Ver Insumos (Salida)</a></li>
-                            <li><a th:href="@{/categoria/}" class="sidebar-link">Ver Categorias (Insumos)</a></li>
-                            <li><a href="/categoria/opcion2" class="sidebar-link">Ver Marcas (Insumos)</a></li>
+                            <li><a th:href="@{/insumo/}" class="sidebar-link">Ver Insumos (Principal)</a></li>
+                            <!-- <li><a href="/categoria/opcion2" class="sidebar-link">Ver Insumos (Ingresos)</a></li>
+                            <li><a href="/categoria/opcion2" class="sidebar-link">Ver Insumos (Salida)</a></li> -->
+                            <li><a th:href="@{/catinsumo/}" class="sidebar-link">Ver Categorias (Insumos)</a></li>
+                            <li><a th:href="@{/marca/}" class="sidebar-link">Ver Marcas (Insumos)</a></li>
                         </ul>
                     </div>
                 </li>
@@ -63,9 +63,9 @@
                     <div class="collapse" id="submenuProductos">
                         <ul class="list-unstyled ps-3">
                             <li><a th:href="@{/producto/}" class="sidebar-link">Ver Productos (Principal)</a></li>
-                            <li><a href="/categoria/opcion2" class="sidebar-link">Ver Productos (Ingresos)</a></li>
-                            <li><a href="/categoria/opcion2" class="sidebar-link">Ver Productos (Salida)</a></li>
-                            <li><a th:href="@{/categoria/}" class="sidebar-link">Ver Categorias (Producto)</a></li>
+                            <!-- <li><a href="/categoria/opcion2" class="sidebar-link">Ver Productos (Ingresos)</a></li>
+                            <li><a href="/categoria/opcion2" class="sidebar-link">Ver Productos (Salida)</a></li> -->
+                            <li><a th:href="@{/catproducto/}" class="sidebar-link">Ver Categorias (Producto)</a></li>
                         </ul>
                     </div>
                 </li>
@@ -78,9 +78,9 @@
                     <div class="collapse" id="submenuServicios">
                         <ul class="list-unstyled ps-3">
                             <li><a th:href="@{/producto/}" class="sidebar-link">Ver Servicios (Principal)</a></li>
-                            <li><a href="/categoria/opcion2" class="sidebar-link">Ver Servicios (Ingresos)</a></li>
-                            <li><a href="/categoria/opcion2" class="sidebar-link">Ver Servicios (Salida)</a></li>
-                            <li><a th:href="@{/categoria/}" class="sidebar-link">Ver Categorias (Servicios)</a></li>
+                            <!-- <li><a href="/categoria/opcion2" class="sidebar-link">Ver Servicios (Ingresos)</a></li>
+                            <li><a href="/categoria/opcion2" class="sidebar-link">Ver Servicios (Salida)</a></li> -->
+                            <li><a th:href="@{/espservicio/}" class="sidebar-link">Ver Servicos Específicos</a></li>
                         </ul>
                     </div>
                 </li>
@@ -88,19 +88,6 @@
                     <a th:href="@{/inventario/}" class='sidebar-link'>
                         <i data-feather="users" width="20"></i> 
                         <span>Usuarios</span>
-                    </a>
-                </li>
-                
-                <li class="sidebar-item  ">
-                    <a th:href="@{/inventario/}" class='sidebar-link'>
-                        <i data-feather="file-plus" width="20"></i> 
-                        <span>Inventario</span>
-                    </a>
-                </li>
-                <li class="sidebar-item  ">
-                    <a th:href="@{/cliente/}" class='sidebar-link'>
-                        <i data-feather="file-plus" width="20"></i> 
-                        <span>Prueba</span>
                     </a>
                 </li>
         </ul>
