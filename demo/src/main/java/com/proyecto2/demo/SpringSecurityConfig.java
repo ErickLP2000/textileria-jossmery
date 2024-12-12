@@ -9,7 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-import com.proyecto2.demo.service.UserService;
+import com.proyecto2.demo.serviceImp.UserService;
 
 @Configuration
 public class SpringSecurityConfig {

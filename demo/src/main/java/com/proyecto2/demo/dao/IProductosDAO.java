@@ -1,9 +1,9 @@
 package com.proyecto2.demo.dao;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.proyecto2.demo.entidad.Productos;
 
-public interface IProductosDAO extends CrudRepository<Productos,Long>{
+public interface IProductosDAO extends JpaRepository<Productos,Long>{
     
 }
